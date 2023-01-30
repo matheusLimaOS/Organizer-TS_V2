@@ -39,6 +39,9 @@ export async function getRatingByUserIdDB(userId:number) {
     return await prisma.ratings.findMany({
         where:{
             userId
+        },
+        include: {
+            movies:true
         }
     })
 }
@@ -47,6 +50,9 @@ export async function getRatingByMovieIdDB(movieId:number) {
     return await prisma.ratings.findMany({
         where:{
             movieId,
+        },
+        include: {
+            movies:true
         }
     })
 }

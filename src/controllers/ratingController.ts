@@ -71,6 +71,8 @@ export async function getRatingByUserId(req:Request,res:Response){
 
         const user = await getUserById(Number(userId));
 
+        console.log(user);
+        
         if(user === null){
             return res.status(404).send({message: "user not found"});
         }

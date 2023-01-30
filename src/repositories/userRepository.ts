@@ -8,7 +8,7 @@ export async function insertUserDB(user:User) {
 }
 
 export async function getUserById(userId:number) {
-    await prisma.users.findFirst({
+    return await prisma.users.findFirst({
         where:{
             id:userId
         }
