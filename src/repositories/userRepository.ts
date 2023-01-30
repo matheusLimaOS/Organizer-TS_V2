@@ -6,3 +6,11 @@ export async function insertUserDB(user:User) {
         data:user
     });
 }
+
+export async function getUserById(userId:number) {
+    await prisma.users.findFirst({
+        where:{
+            id:userId
+        }
+    });
+}

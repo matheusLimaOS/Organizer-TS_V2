@@ -35,6 +35,22 @@ export async function getRatingByIds(movieId:number, userId:number) {
     })
 }
 
+export async function getRatingByUserIdDB(userId:number) {
+    return await prisma.ratings.findMany({
+        where:{
+            userId
+        }
+    })
+}
+
+export async function getRatingByMovieIdDB(movieId:number) {
+    return await prisma.ratings.findMany({
+        where:{
+            movieId,
+        }
+    })
+}
+
 export async function updateRating(id:number,body:Rating) {
     return await prisma.ratings.update({
         where:{
